@@ -1,0 +1,26 @@
+//POJ-1063 Flip and Shift
+
+#include<iostream>
+using namespace std;
+int main()
+{
+   int n,count,even,odd;
+   cin>>n;
+   while(n--)
+   {
+       even=odd=0;
+       cin>>count;
+       int *disk=new int [count];
+       for(int i=0;i<count;i++)
+       {
+           cin>>disk[i];
+           if(i%2==0&&disk[i]==0)even++;
+           else if(i%2!=0&&disk[i]==0)odd++;
+       }
+       delete disk;
+       if(count%2!=0){cout<<"YES"<<endl;continue;}
+       else if(even-odd<2&&even-odd>-2)cout<<"YES"<<endl;
+       else cout<<"NO"<<endl;
+   }
+   return 0;
+}
